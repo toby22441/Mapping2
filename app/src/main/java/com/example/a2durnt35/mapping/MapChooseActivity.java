@@ -17,6 +17,7 @@ public class MapChooseActivity extends AppCompatActivity implements View.OnClick
         regular.setOnClickListener(this);
         Button hikebikemap = (Button) findViewById(R.id.btnHikeBikeMap);
         hikebikemap.setOnClickListener(this);
+
     }
 
         public void onClick(View view)

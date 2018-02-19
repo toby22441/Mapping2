@@ -4,5 +4,6 @@
     <string name="hikebikemapview">hike bike map preview</string>
     <string name="regularview"> regular view </string>
     <string name="selectmap"> select map</string>
-
+    <string name="setlocation"> select location</string>
+    <string name="search"> search!</string>
 </resources>

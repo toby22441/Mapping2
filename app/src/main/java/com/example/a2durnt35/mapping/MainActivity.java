@@ -16,7 +16,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.content.Intent;
-
+import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -54,10 +54,44 @@ public class MainActivity extends AppCompatActivity
         if(item.getItemId() == R.id.choosemap)
         {
             Intent intent = new Intent(this,MapChooseActivity.class);
-            startActivity(intent);
+            startActivityForResult(intent,0);
+            return true;
+        }
+
+        if(item.getItemId() == R.id.SetLocation)
+        {
+            Intent intent = new Intent(this,SetLocationActivity.class);
+            startActivityForResult(intent,0);
             return true;
         }
         return false;
     }
+
+
+
+
+    protected void onActivityResult(int requestCode,int resultCode,Intent intent)
+    {
+
+        if(requestCode==0)
+        {
+
+            if (resultCode==RESULT_OK)
+            {
+                Bundle extras=intent.getExtras();
+                boolean hikebikemap = extras.getBoolean("com.example.a2durnt35.mapping.hikebikemap");
+                if(hikebikemap==true)
+                {
+                    mv.setTileSource(TileSourceFactory.HIKEBIKEMAP);
+                }
+                else
+                {
+                    mv.setTileSource(TileSourceFactory.MAPNIK);
+                }
+            }
+        }
+    }
+
+
 
 }
