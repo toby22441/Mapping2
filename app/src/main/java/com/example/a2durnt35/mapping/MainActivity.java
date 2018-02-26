@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity
         if(item.getItemId() == R.id.SetLocation)
         {
             Intent intent = new Intent(this,SetLocationActivity.class);
-            startActivityForResult(intent,0);
+            startActivityForResult(intent,1);
             return true;
         }
         return false;
@@ -88,6 +89,19 @@ public class MainActivity extends AppCompatActivity
                 {
                     mv.setTileSource(TileSourceFactory.MAPNIK);
                 }
+            }
+
+        }
+        if (requestCode==1)
+        {
+            if (resultCode==RESULT_OK) {
+
+                Bundle extras = intent.getExtras();
+
+                double lat = extras.getDouble("com.example.a2durnt35.mapping.latitude");
+                double lon = extras.getDouble("com.example.a2durnt35.mapping.longitude");
+
+                mv.getController().setCenter(new GeoPoint(lat,lon));
             }
         }
     }

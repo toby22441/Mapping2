@@ -3,30 +3,44 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:id="@+id/tv1" android:text="latitude"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv1"
+        android:text="latitude"
+        android:textSize="20sp"/>
 
 <EditText
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:inputType="numberDecimal"
+    android:inputType="numberDecimal|numberSigned"
     android:id="@+id/lat"
+    android:textSize="18sp"
     />
 
-    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:id="@+id/tv2" android:text="longitude"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv2"
+        android:text="longitude"
+        android:textSize="20sp"
+        />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
+        android:inputType="numberDecimal|numberSigned"
         android:id="@+id/lon"
+        android:textSize="18sp"
         />
 
 
 
- <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
- android:id="@+id/btnSearchLocation" android:text="@string/search" />
+ <Button
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:id="@+id/btnSearchLocation"
+     android:text="@string/search" />
 
 
 
