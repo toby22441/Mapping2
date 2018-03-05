@@ -39,7 +39,7 @@ public class SetLocationActivity extends AppCompatActivity implements View.OnCli
             bundle.putDouble("com.example.a2durnt35.mapping.latitude",latitude);
             bundle.putDouble("com.example.a2durnt35.mapping.longitude",longitude);
 
-           
+
 
             intent.putExtras(bundle);
             setResult(RESULT_OK,intent);
