@@ -6,4 +6,5 @@
     <string name="selectmap"> select map</string>
     <string name="setlocation"> select location</string>
     <string name="search"> search!</string>
+    <string name="preferences"> preferences</string>
 </resources>

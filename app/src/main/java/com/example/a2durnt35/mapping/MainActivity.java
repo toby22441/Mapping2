@@ -1,5 +1,6 @@
 package com.example.a2durnt35.mapping;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -65,6 +66,13 @@ public class MainActivity extends AppCompatActivity
             startActivityForResult(intent,1);
             return true;
         }
+
+        if(item.getItemId() == R.id.preferences)
+        {
+            Intent intent = new Intent(this,PreferencesActivity.class);
+            startActivityForResult(intent,2);
+            return true;
+        }
         return false;
     }
 
@@ -106,6 +114,20 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+
+
+    public void onStart()
+    {
+        super.onStart();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        double lat = Double.parseDouble ( prefs.getString("lat", "50.9") );
+        double lon = Double.parseDouble ( prefs.getString("lon", "-1.4") );
+        Integer zoom = Integer.parseInt( prefs.getString("zoom", "10") );
+        mv.setBuiltInZoomControls(true);
+        mv.getController().setZoom(zoom);
+        mv.getController().setCenter(new GeoPoint(lat,lon));
+
+    }
 
 
 }
